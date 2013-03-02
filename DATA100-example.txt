@@ -1,0 +1,8 @@
+﻿ta100 d100 = new Data100();
+d100.ReadFromFile("t.txt", Encoding.ASCII);
+string nStr1 = d100.ToBitArrayString();
+d100.ReadFromBooleanText(nStr1);
+Console.WriteLine(nStr1);
+string nStr2 = d100.ToBitArrayString();
+Console.WriteLine(nStr2);
+d100.WriteToFile("t1.txt");
