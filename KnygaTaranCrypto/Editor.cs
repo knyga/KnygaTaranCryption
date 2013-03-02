@@ -13,7 +13,6 @@ namespace KnygaTaranCrypto
     public partial class Editor : Form
     {
         string prev;
-
         /// <summary>
         /// Текст из блока редактирования
         /// </summary>
@@ -67,5 +66,19 @@ namespace KnygaTaranCrypto
                 prev = EditedText;
             }
         }
+
+		private void UpdateReadOnly(bool state)
+		{
+			    OKButton.Enabled = !state;
+			    ClearButton.Enabled = !state;
+			    MainTextBox.ReadOnly = state;
+		}
+
+	    public bool ReadOnly
+	    {
+			get { return MainTextBox.ReadOnly; }
+		    set { UpdateReadOnly(value); }
+	    }
+
     }
 }

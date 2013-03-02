@@ -30,13 +30,14 @@
         {
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnEditIvBitSequence = new System.Windows.Forms.Button();
+			this.lbKeyLength = new System.Windows.Forms.ListBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnSave = new System.Windows.Forms.Button();
 			this.tbSeed = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.tbPassword = new System.Windows.Forms.TextBox();
-			this.lbKeyLength = new System.Windows.Forms.ListBox();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -51,6 +52,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.btnEditIvBitSequence);
 			this.panel1.Controls.Add(this.lbKeyLength);
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.btnCancel);
@@ -62,8 +64,26 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(450, 245);
+			this.panel1.Size = new System.Drawing.Size(462, 243);
 			this.panel1.TabIndex = 1;
+			// 
+			// btnEditIvBitSequence
+			// 
+			this.btnEditIvBitSequence.Location = new System.Drawing.Point(368, 66);
+			this.btnEditIvBitSequence.Name = "btnEditIvBitSequence";
+			this.btnEditIvBitSequence.Size = new System.Drawing.Size(70, 21);
+			this.btnEditIvBitSequence.TabIndex = 8;
+			this.btnEditIvBitSequence.Text = "Просмотр";
+			this.btnEditIvBitSequence.UseVisualStyleBackColor = true;
+			this.btnEditIvBitSequence.Click += new System.EventHandler(this.btnEditIvBitSequence_Click);
+			// 
+			// lbKeyLength
+			// 
+			this.lbKeyLength.FormattingEnabled = true;
+			this.lbKeyLength.Location = new System.Drawing.Point(124, 123);
+			this.lbKeyLength.Name = "lbKeyLength";
+			this.lbKeyLength.Size = new System.Drawing.Size(180, 69);
+			this.lbKeyLength.TabIndex = 7;
 			// 
 			// label3
 			// 
@@ -99,7 +119,7 @@
 			// 
 			this.tbSeed.Location = new System.Drawing.Point(272, 67);
 			this.tbSeed.Name = "tbSeed";
-			this.tbSeed.Size = new System.Drawing.Size(100, 20);
+			this.tbSeed.Size = new System.Drawing.Size(90, 20);
 			this.tbSeed.TabIndex = 3;
 			this.tbSeed.Text = "0";
 			// 
@@ -120,19 +140,11 @@
 			this.tbPassword.Size = new System.Drawing.Size(423, 35);
 			this.tbPassword.TabIndex = 1;
 			// 
-			// lbKeyLength
-			// 
-			this.lbKeyLength.FormattingEnabled = true;
-			this.lbKeyLength.Location = new System.Drawing.Point(124, 123);
-			this.lbKeyLength.Name = "lbKeyLength";
-			this.lbKeyLength.Size = new System.Drawing.Size(180, 69);
-			this.lbKeyLength.TabIndex = 7;
-			// 
 			// KeyOptionsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(450, 245);
+			this.ClientSize = new System.Drawing.Size(462, 243);
 			this.Controls.Add(this.panel1);
 			this.Name = "KeyOptionsForm";
 			this.Text = "Опции шифрования";
@@ -153,5 +165,6 @@
         private System.Windows.Forms.TextBox tbPassword;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ListBox lbKeyLength;
+		private System.Windows.Forms.Button btnEditIvBitSequence;
     }
 }

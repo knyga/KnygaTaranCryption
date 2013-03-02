@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using KnygaTaranCryptoLib;
 using KnygaTaranCryptoLib.Ciphers;
 using Org.BouncyCastle.Crypto.Engines;
 
@@ -137,5 +138,16 @@ namespace KnygaTaranCrypto
 				return Length + "-bit";
 			}
 		}
+
+		private void btnEditIvBitSequence_Click(object sender, EventArgs e)
+		{
+			new Random(int.Parse(tbSeed.Text)).NextBytes(_iv);
+			var ivData = new Data100(_iv);
+
+			var editor = new Editor(ivData.ToBitArrayString(),"IV");
+			editor.ReadOnly = true;
+			editor.ShowDialog();
+		}
+
     }
 }

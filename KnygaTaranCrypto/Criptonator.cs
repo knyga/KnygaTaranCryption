@@ -71,7 +71,9 @@ namespace KnygaTaranCrypto
 
         private void EncryptToDecryptButton_Click(object sender, EventArgs e)
         {
-            decrypt = encrypt;
+            //decrypt = encrypt;
+	        decrypt.Data = encrypt.Data;
+			UpdateTextAreas();
         }
 
         private void EncryptEditTextButton_Click(object sender, EventArgs e)
@@ -93,6 +95,8 @@ namespace KnygaTaranCrypto
                 UpdateTextAreas();
             }
         }
+
+
 
         private void EncryptSaveToFileButton_Click(object sender, EventArgs e)
         {
@@ -126,7 +130,7 @@ namespace KnygaTaranCrypto
 
         private void DecryptToEncryptButton_Click(object sender, EventArgs e)
         {
-            encrypt = decrypt;
+            encrypt.Data = decrypt.Data;
             UpdateTextAreas();
         }
 
