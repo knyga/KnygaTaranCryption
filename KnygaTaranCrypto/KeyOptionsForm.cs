@@ -28,9 +28,9 @@ namespace KnygaTaranCrypto
 			tbPassword.Text = _mParams.TextKey;
 			tbSeed.Text = _mParams.Seed.ToString();
 
-            //128 (blow, idea, cast)
-            if (cipherType.Equals(typeof (BlowfishEngine)) || cipherType.Equals(typeof (IdeaEngine)) ||
-                cipherType.Equals(typeof (Cast5Engine)))
+            //128 (blow, idea, cast, AES)
+            if (cipherType.Equals(typeof (BlowfishEngine))  ||  cipherType.Equals(typeof (IdeaEngine)) ||
+                cipherType.Equals(typeof (Cast5Engine))     ||  cipherType.Equals(typeof (AesEngine)))
             {
                 lbKeyLength.Items.Add(new KeyLengthObject(){Length = 128});
             }
@@ -44,8 +44,9 @@ namespace KnygaTaranCrypto
             {
 				lbKeyLength.Items.Add(new KeyLengthObject(){Length = 168});
             }
-            //256 (blow,gost)
-            if (cipherType.Equals(typeof (Gost28147Engine)) || cipherType.Equals(typeof (BlowfishEngine)))
+            //256 (blow,gost,AES)
+            if (cipherType.Equals(typeof (Gost28147Engine)) || cipherType.Equals(typeof (BlowfishEngine)) ||
+                cipherType.Equals(typeof (AesEngine)))
             {
 				lbKeyLength.Items.Add(new KeyLengthObject(){Length = 256});
             }
@@ -54,6 +55,12 @@ namespace KnygaTaranCrypto
 			lbKeyLength.SelectedIndex = 0;
         }
 
+        //!!!!!WARNING!!!!!
+        //The specified cryptographic algorithm is not supported on this platform.
+        //http://social.msdn.microsoft.com/Forums/en-US/csharplanguage/thread/04328b17-aeea-439a-9574-e6e0a7ce8040/
+        //!!!!!WARNING!!!!!
+        //На XP не будут работать алгоритмы хэширования эти, нужно что-то другое для получения дайжеста использовать или в Кастеле поискать
+        //Может SHA-3 подойдет? Там длина динамическая, хватит одного алгоритма на все случаи
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (tbPassword.Text.Length < 3)
@@ -107,6 +114,7 @@ namespace KnygaTaranCrypto
                     {
                         var tempKey = new List<byte>();
 	                    var hashBytes = BitConverter.GetBytes(tbPassword.GetHashCode());
+                        //?? :) 32*2
                         tempKey.AddRange(hashBytes);
 						tempKey.AddRange(hashBytes);
                         _key = tempKey.ToArray();

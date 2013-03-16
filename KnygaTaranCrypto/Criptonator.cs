@@ -17,12 +17,14 @@ namespace KnygaTaranCrypto
         private Data100 encrypt;
         private Data100 decrypt;
         private BlockChiperMode _chiperMode;
+        //Автократност
+        private bool _isAutoMultiplicity = false;
 
 	    private ModeParams _mParams;
 
         Dictionary<string, Encoding> encodingDict;
 
-        public Criptonator(string title, BlockChiperMode cipherMode)
+        public Criptonator(BlockChiperMode cipherMode)
         {
             InitializeComponent();
             encrypt = new Data100();
@@ -39,8 +41,15 @@ namespace KnygaTaranCrypto
                 {Encoding.Unicode.EncodingName, Encoding.Unicode},
             };
 
-            this.Text = title;
-            _chiperMode = cipherMode;
+            UpdateChiper(cipherMode);
+        }
+
+        private void UpdateChiper(BlockChiperMode chiperMode)
+        {
+            this._chiperMode = chiperMode;
+            this.Text = string.Format("Шифрование/Расшифрование {0} - {1}",
+                                      chiperMode.Chiper,
+                                      chiperMode);
         }
 
         private void UpdateTextAreas()
@@ -165,12 +174,38 @@ namespace KnygaTaranCrypto
 
         private void DecryptButton_Click(object sender, EventArgs e)
         {
+            int left = decrypt.Data.Length % _chiperMode.Chiper.DataBlockLength;
+            //Не задан ключ или инициализирующий вектор
+            if (_mParams.Key.Length < 8 || _mParams.IV.Length < 8)
+            {
+                OptionsStripMenuItem_Click(sender, e);
+            }
+            if (!_isAutoMultiplicity && left != 0)
+            {
+                MessageBox.Show(string.Format("Количество бит текста не кратно {0}! Добавьте {1} символов (1 или 0) или включите автократность (Правка-Автократность)",
+                    _chiperMode.Chiper.DataBlockLength,
+                    left), "Ошибка кратности", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DecryptEditBinaryButton_Click(sender, e);
+            }
             encrypt.Data = _chiperMode.Decrypt(decrypt.Data, _mParams.Key, _mParams.IV);
             EncryptRichPreview.Text = encrypt.ToString();
         }
 
         private void EncryptButton_Click(object sender, EventArgs e)
         {
+            int left = encrypt.Data.Length % _chiperMode.Chiper.DataBlockLength;
+            //Не задан ключ или инициализирующий вектор
+            if (_mParams.Key.Length < 8 || _mParams.IV.Length < 8)
+            {
+                OptionsStripMenuItem_Click(sender, e);
+            }
+            if (!_isAutoMultiplicity && left != 0)
+            {
+                MessageBox.Show(string.Format("Количество бит текста не кратно {0}! Добавьте {1} символов (1 или 0) или включите автократность (Правка-Автократность)",
+                    _chiperMode.Chiper.DataBlockLength,
+                    left), "Ошибка кратности", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                EncryptEditBinaryButton_Click(sender, e);
+            }
             decrypt.Data = _chiperMode.Encrypt(encrypt.Data, _mParams.Key, _mParams.IV);
             DecryptRichPreview.Text = decrypt.ToString();
         }
@@ -197,13 +232,68 @@ namespace KnygaTaranCrypto
             }
         }
 
-        private void btnKeyOptions_Click(object sender, EventArgs e)
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void electronicCodebookECBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateChiper(new EcbMode()
+            {
+                Chiper = this._chiperMode.Chiper
+            });
+        }
+
+        private void cipherBlockChainingCBCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateChiper(new CbcMode()
+            {
+                Chiper = this._chiperMode.Chiper
+            });
+        }
+
+        private void cipherFeedbackCFBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateChiper(new CfbMode()
+            {
+                Chiper = this._chiperMode.Chiper
+            });
+        }
+
+        private void outputFeedbackOFBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateChiper(new OfbMode()
+            {
+                Chiper = this._chiperMode.Chiper
+            });
+        }
+
+        private void автократкностьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _isAutoMultiplicity = !_isAutoMultiplicity;
+        }
+
+        private void OptionsStripMenuItem_Click(object sender, EventArgs e)
         {
             var keyOptsForm = new KeyOptionsForm((_chiperMode.Chiper as BlockCipher).CipherType, _mParams);
             keyOptsForm.ShowDialog();
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //WebBrowser page?
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //WebBrowser page?
+        }
     }
 
+    /// <summary>
+    /// Местный парень?:)
+    /// </summary>
 	public class ModeParams
 	{
 		public byte[] Key { get; set; }

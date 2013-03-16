@@ -21,6 +21,7 @@ namespace KnygaTaranCrypto
 
             var _blockCiphers = new[]
                 {
+                    new BlockCipher(new AesEngine()),
                     new BlockCipher(new BlowfishEngine()),
                     new BlockCipher(new DesEdeEngine()),
                     new BlockCipher(new IdeaEngine()),
@@ -48,17 +49,39 @@ namespace KnygaTaranCrypto
 
         private void OKButton_Click(object sender, EventArgs e)
         {
-            //передать параметры ШИФРА и РЕЖИМА
-            var title = string.Format("Шифрование/Расшифрование {0} - {1}",
-                                      CipherList.SelectedItem,
-                                      ModeList.SelectedItem);
-
             var selectedMode = ModeList.SelectedItem as BlockChiperMode;
             selectedMode.Chiper = CipherList.SelectedItem as BlockCipher;
 
-            var cpn = new Criptonator(title, selectedMode);
-            cpn.ShowDialog();
+            var cpn = new Criptonator(selectedMode);
+            cpn.Show();
        }
+
+        private void chiperHelpButton_Click(object sender, EventArgs e)
+        {
+            //как в modeHelpButton_Click
+            //смотри /Pages
+        }
+
+        private void modeHelpButton_Click(object sender, EventArgs e)
+        {
+            BlockChiperMode mode = ModeList.SelectedItem as BlockChiperMode;
+            Type modesType = mode.GetType();
+            string page = string.Empty;
+
+            //Все страницы нужно сначала добавить в список ресурсов проекта
+            //Ветвление на отрисовку
+            if(modesType.Equals(typeof(CbcMode))) {
+                page = Properties.Resources.CBCMode;
+            } else if(modesType.Equals(typeof(CfbMode))) {
+                page = Properties.Resources.CFBMode;
+            } else if(modesType.Equals(typeof(EcbMode))) {
+                page = Properties.Resources.ECBMode;
+            } else if(modesType.Equals(typeof(OfbMode))) {
+                page = Properties.Resources.OFBMode;
+            };
+
+            new WebBrowser(page).Show();
+        }
 
     }
 }

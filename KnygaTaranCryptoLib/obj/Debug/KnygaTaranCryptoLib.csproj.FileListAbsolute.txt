@@ -1,0 +1,5 @@
+I:\KnygaTaranCrypto\KnygaTaranCryptoLib\obj\Debug\ResolveAssemblyReference.cache
+I:\KnygaTaranCrypto\KnygaTaranCryptoLib\bin\Debug\KnygaTaranCryptoLib.dll
+I:\KnygaTaranCrypto\KnygaTaranCryptoLib\bin\Debug\KnygaTaranCryptoLib.pdb
+I:\KnygaTaranCrypto\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.dll
+I:\KnygaTaranCrypto\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.pdb

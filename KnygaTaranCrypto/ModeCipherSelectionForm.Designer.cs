@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModeCipherSelectionForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.CipherList = new System.Windows.Forms.ListBox();
             this.ModeList = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.modeHelpButton = new System.Windows.Forms.Button();
+            this.chiperHelpButton = new System.Windows.Forms.Button();
             this.OKButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -50,7 +53,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(503, 180);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -66,7 +69,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(497, 124);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(497, 134);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // CipherList
@@ -75,7 +78,7 @@
             this.CipherList.FormattingEnabled = true;
             this.CipherList.Location = new System.Drawing.Point(3, 3);
             this.CipherList.Name = "CipherList";
-            this.CipherList.Size = new System.Drawing.Size(242, 118);
+            this.CipherList.Size = new System.Drawing.Size(242, 128);
             this.CipherList.TabIndex = 0;
             // 
             // ModeList
@@ -84,21 +87,43 @@
             this.ModeList.FormattingEnabled = true;
             this.ModeList.Location = new System.Drawing.Point(251, 3);
             this.ModeList.Name = "ModeList";
-            this.ModeList.Size = new System.Drawing.Size(243, 118);
+            this.ModeList.Size = new System.Drawing.Size(243, 128);
             this.ModeList.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.modeHelpButton);
+            this.panel1.Controls.Add(this.chiperHelpButton);
             this.panel1.Controls.Add(this.OKButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 133);
+            this.panel1.Location = new System.Drawing.Point(3, 143);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(497, 44);
+            this.panel1.Size = new System.Drawing.Size(497, 34);
             this.panel1.TabIndex = 1;
+            // 
+            // modeHelpButton
+            // 
+            this.modeHelpButton.Location = new System.Drawing.Point(102, 2);
+            this.modeHelpButton.Name = "modeHelpButton";
+            this.modeHelpButton.Size = new System.Drawing.Size(102, 23);
+            this.modeHelpButton.TabIndex = 2;
+            this.modeHelpButton.Text = "Изучить режим";
+            this.modeHelpButton.UseVisualStyleBackColor = true;
+            this.modeHelpButton.Click += new System.EventHandler(this.modeHelpButton_Click);
+            // 
+            // chiperHelpButton
+            // 
+            this.chiperHelpButton.Location = new System.Drawing.Point(3, 2);
+            this.chiperHelpButton.Name = "chiperHelpButton";
+            this.chiperHelpButton.Size = new System.Drawing.Size(93, 23);
+            this.chiperHelpButton.TabIndex = 1;
+            this.chiperHelpButton.Text = "Изучить шифр";
+            this.chiperHelpButton.UseVisualStyleBackColor = true;
+            this.chiperHelpButton.Click += new System.EventHandler(this.chiperHelpButton_Click);
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(209, 12);
+            this.OKButton.Location = new System.Drawing.Point(419, 0);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
             this.OKButton.TabIndex = 0;
@@ -113,6 +138,8 @@
             this.ClientSize = new System.Drawing.Size(503, 180);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ModeCipherSelectionForm";
             this.Text = "Выбор алгоритма и режима";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -130,6 +157,8 @@
         private System.Windows.Forms.ListBox ModeList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button OKButton;
+        private System.Windows.Forms.Button modeHelpButton;
+        private System.Windows.Forms.Button chiperHelpButton;
     }
 }
 

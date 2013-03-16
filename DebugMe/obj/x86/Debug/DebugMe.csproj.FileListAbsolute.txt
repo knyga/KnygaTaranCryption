@@ -1,0 +1,8 @@
+I:\KnygaTaranCrypto\DebugMe\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\KnygaTaranCrypto\DebugMe\bin\Debug\DebugMe.exe
+I:\KnygaTaranCrypto\DebugMe\bin\Debug\DebugMe.pdb
+I:\KnygaTaranCrypto\DebugMe\bin\Debug\KnygaTaranCryptoLib.dll
+I:\KnygaTaranCrypto\DebugMe\bin\Debug\BouncyCastle.CryptoExt.dll
+I:\KnygaTaranCrypto\DebugMe\bin\Debug\KnygaTaranCryptoLib.pdb
+I:\KnygaTaranCrypto\DebugMe\obj\x86\Debug\DebugMe.exe
+I:\KnygaTaranCrypto\DebugMe\obj\x86\Debug\DebugMe.pdb
