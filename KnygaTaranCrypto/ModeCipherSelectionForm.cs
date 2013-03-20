@@ -58,8 +58,26 @@ namespace KnygaTaranCrypto
 
         private void chiperHelpButton_Click(object sender, EventArgs e)
         {
-            //как в modeHelpButton_Click
-            //смотри /Pages
+	        BlockCipher blockCipher = CipherList.SelectedItem as BlockCipher;
+	        Type cipherType = blockCipher.CipherType;
+	        string page = null;
+
+	        if (cipherType.Equals(typeof (AesEngine)))
+		        page = Properties.Resources.AES;
+	        if (cipherType.Equals(typeof (BlowfishEngine)))
+		        page = Properties.Resources.BlowFish;
+	        if (cipherType.Equals(typeof(DesEdeEngine)))
+		        page = Properties.Resources.TrippleDES;
+	        if (cipherType.Equals(typeof (IdeaEngine)))
+		        page = Properties.Resources.IDEA;
+	        if (cipherType.Equals(typeof (Cast5Engine)))
+		        page = Properties.Resources.CAST;
+	        if (cipherType.Equals(typeof (Gost28147Engine)))
+		        page = Properties.Resources.GOST28147;
+	        if (cipherType.Equals(typeof (DesEngine)))
+		        page = Properties.Resources.DES;
+			
+			new WebBrowser(page).Show();
         }
 
         private void modeHelpButton_Click(object sender, EventArgs e)

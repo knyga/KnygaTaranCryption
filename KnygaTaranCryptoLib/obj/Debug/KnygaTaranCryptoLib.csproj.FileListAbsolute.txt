@@ -3,3 +3,8 @@ I:\KnygaTaranCrypto\KnygaTaranCryptoLib\bin\Debug\KnygaTaranCryptoLib.dll
 I:\KnygaTaranCrypto\KnygaTaranCryptoLib\bin\Debug\KnygaTaranCryptoLib.pdb
 I:\KnygaTaranCrypto\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.dll
 I:\KnygaTaranCrypto\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.pdb
+D:\Projects\KnygaTaranCryption\KnygaTaranCryptoLib\bin\Debug\KnygaTaranCryptoLib.dll
+D:\Projects\KnygaTaranCryption\KnygaTaranCryptoLib\bin\Debug\KnygaTaranCryptoLib.pdb
+D:\Projects\KnygaTaranCryption\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.dll
+D:\Projects\KnygaTaranCryption\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.pdb
+D:\Projects\KnygaTaranCryption\KnygaTaranCryptoLib\obj\Debug\KnygaTaranCryptoLib.csprojResolveAssemblyReference.cache

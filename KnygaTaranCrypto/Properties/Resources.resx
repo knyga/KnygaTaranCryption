@@ -118,16 +118,49 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AES" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\AES.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BlowFish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\BlowFish.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CAST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\CAST.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="CBCMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pages\CBCMode.htm;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="CFBMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pages\CFBMode.htm;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="CopeWithFiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Help\CopeWithFiles.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Decrypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Help\Decrypt.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="DES" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\DES.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="ECBMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pages\ECBMode.htm;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Encrypt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Help\Encrypt.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="GOST28147" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\GOST28147.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="IDEA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\IDEA.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Learning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Help\Learning.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="OFBMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pages\OFBMode.htm;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TrippleDES" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Pages\Ciphers\TrippleDES.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

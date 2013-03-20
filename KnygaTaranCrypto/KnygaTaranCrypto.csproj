@@ -147,7 +147,18 @@
   <ItemGroup>
     <Content Include="Pages\CBCMode.htm" />
     <Content Include="Pages\CFBMode.htm" />
+    <Content Include="Pages\Ciphers\AES.html" />
+    <Content Include="Pages\Ciphers\BlowFish.html" />
+    <Content Include="Pages\Ciphers\CAST.html" />
+    <Content Include="Pages\Ciphers\DES.html" />
+    <Content Include="Pages\Ciphers\GOST28147.html" />
+    <Content Include="Pages\Ciphers\IDEA.html" />
+    <Content Include="Pages\Ciphers\TrippleDES.html" />
     <Content Include="Pages\ECBMode.htm" />
+    <Content Include="Pages\Help\CopeWithFiles.html" />
+    <Content Include="Pages\Help\Decrypt.html" />
+    <Content Include="Pages\Help\Encrypt.html" />
+    <Content Include="Pages\Help\Learning.html" />
     <Content Include="Pages\OFBMode.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

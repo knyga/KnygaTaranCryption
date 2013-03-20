@@ -20,11 +20,11 @@ namespace KnygaTaranCrypto
 
 	    private ModeParams _mParams;
 
-		public KeyOptionsForm(Type cipherType, ModeParams modeParams)
+		public KeyOptionsForm(Type cipherType, int IVLength, ModeParams modeParams)
         {
             InitializeComponent();
 			_mParams = modeParams;
-            _iv = new byte[8];
+            _iv = new byte[IVLength];
 			tbPassword.Text = _mParams.TextKey;
 			tbSeed.Text = _mParams.Seed.ToString();
 
@@ -98,13 +98,13 @@ namespace KnygaTaranCrypto
 
                 case 128:
                     {
-                        MD5 md5 = new MD5Cng();
+						MD5 md5 = new MD5CryptoServiceProvider();
                         _key = md5.ComputeHash(passwordAsBytes);
                     }
                     break;
                 case 168:
                     {
-                        SHA1 sh1 = new SHA1Cng();
+                        SHA1 sh1 = new SHA1Managed();
                         var tempKey = sh1.ComputeHash(passwordAsBytes).ToList();
                         tempKey.Add(255);
                         _key = tempKey.ToArray();
@@ -114,7 +114,8 @@ namespace KnygaTaranCrypto
                     {
                         var tempKey = new List<byte>();
 	                    var hashBytes = BitConverter.GetBytes(tbPassword.GetHashCode());
-                        //?? :) 32*2
+                        //?? :) 32*2 
+						// - надо ж 64 бита где-то взять
                         tempKey.AddRange(hashBytes);
 						tempKey.AddRange(hashBytes);
                         _key = tempKey.ToArray();

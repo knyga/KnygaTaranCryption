@@ -165,7 +165,7 @@ namespace KnygaTaranCrypto
 
         private void DecryptSaveFileButton_Click(object sender, EventArgs e)
         {
-            var od = new OpenFileDialog();
+            var od = new SaveFileDialog();
             if (od.ShowDialog() == DialogResult.OK)
             {
                 decrypt.WriteToFile(od.FileName);
@@ -223,7 +223,7 @@ namespace KnygaTaranCrypto
 
         private void DecryptEncodingButton_Click(object sender, EventArgs e)
         {
-            ListSelector ls = new ListSelector(this.encodingDict, "Выбор кодировки для разшифрования", this.decrypt.Encoding.EncodingName);
+            ListSelector ls = new ListSelector(this.encodingDict, "Выбор кодировки для раcшифрования", this.decrypt.Encoding.EncodingName);
             if (ls.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 this.decrypt.Encoding = ls.Selected as System.Text.Encoding;
@@ -276,19 +276,36 @@ namespace KnygaTaranCrypto
 
         private void OptionsStripMenuItem_Click(object sender, EventArgs e)
         {
-            var keyOptsForm = new KeyOptionsForm((_chiperMode.Chiper as BlockCipher).CipherType, _mParams);
+            var keyOptsForm = new KeyOptionsForm((_chiperMode.Chiper as BlockCipher).CipherType,_chiperMode.Chiper.DataBlockLength, _mParams);
             keyOptsForm.ShowDialog();
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //WebBrowser page?
-        }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //WebBrowser page?
         }
+
+		private void msiLearnAlgorithm_Click(object sender, EventArgs e)
+		{
+			new WebBrowser(Properties.Resources.Learning).Show();
+		}
+
+		private void msiEncrypt_Click(object sender, EventArgs e)
+		{
+			new WebBrowser(Properties.Resources.Encrypt).Show();
+		}
+
+		private void msiDecrypt_Click(object sender, EventArgs e)
+		{
+			new WebBrowser(Properties.Resources.Decrypt).Show();
+		}
+
+		private void msiCopingWithFiles_Click(object sender, EventArgs e)
+		{
+			new WebBrowser(Properties.Resources.CopeWithFiles).Show();
+		}
+
     }
 
     /// <summary>

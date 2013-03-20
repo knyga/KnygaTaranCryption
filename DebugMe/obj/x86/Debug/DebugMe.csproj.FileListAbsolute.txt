@@ -6,3 +6,11 @@ I:\KnygaTaranCrypto\DebugMe\bin\Debug\BouncyCastle.CryptoExt.dll
 I:\KnygaTaranCrypto\DebugMe\bin\Debug\KnygaTaranCryptoLib.pdb
 I:\KnygaTaranCrypto\DebugMe\obj\x86\Debug\DebugMe.exe
 I:\KnygaTaranCrypto\DebugMe\obj\x86\Debug\DebugMe.pdb
+D:\Projects\KnygaTaranCryption\DebugMe\bin\Debug\DebugMe.exe
+D:\Projects\KnygaTaranCryption\DebugMe\bin\Debug\DebugMe.pdb
+D:\Projects\KnygaTaranCryption\DebugMe\bin\Debug\KnygaTaranCryptoLib.dll
+D:\Projects\KnygaTaranCryption\DebugMe\bin\Debug\BouncyCastle.CryptoExt.dll
+D:\Projects\KnygaTaranCryption\DebugMe\bin\Debug\KnygaTaranCryptoLib.pdb
+D:\Projects\KnygaTaranCryption\DebugMe\obj\x86\Debug\DebugMe.csprojResolveAssemblyReference.cache
+D:\Projects\KnygaTaranCryption\DebugMe\obj\x86\Debug\DebugMe.exe
+D:\Projects\KnygaTaranCryption\DebugMe\obj\x86\Debug\DebugMe.pdb
