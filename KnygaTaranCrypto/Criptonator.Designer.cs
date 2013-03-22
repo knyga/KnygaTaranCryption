@@ -71,7 +71,6 @@
             this.msiEncrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.msiDecrypt = new System.Windows.Forms.ToolStripMenuItem();
             this.msiCopingWithFiles = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -443,8 +442,7 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.helpToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
@@ -457,7 +455,7 @@
             this.msiDecrypt,
             this.msiCopingWithFiles});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.helpToolStripMenuItem.Text = "Помощь";
             // 
             // msiLearnAlgorithm
@@ -487,13 +485,6 @@
             this.msiCopingWithFiles.Size = new System.Drawing.Size(224, 22);
             this.msiCopingWithFiles.Text = "Работа с файлами";
             this.msiCopingWithFiles.Click += new System.EventHandler(this.msiCopingWithFiles_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
-            this.aboutToolStripMenuItem.Text = "О модуле";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Criptonator
             // 
@@ -559,7 +550,6 @@
         private System.Windows.Forms.ToolStripMenuItem outputFeedbackOFBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem msiLearnAlgorithm;
 		private System.Windows.Forms.ToolStripMenuItem msiEncrypt;
 		private System.Windows.Forms.ToolStripMenuItem msiDecrypt;
