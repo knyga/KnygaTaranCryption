@@ -97,12 +97,19 @@ namespace KnygaTaranCrypto
 
         private void EncryptEditBinaryButton_Click(object sender, EventArgs e)
         {
+            EncryptEditBinary();
+        }
+
+        private DialogResult EncryptEditBinary()
+        {
+            DialogResult dr = default(DialogResult);
             Editor et = new Editor(encrypt.ToBitArrayString(), "Редактировать открытый текст (бинарная последовательность)", new System.Text.RegularExpressions.Regex("^[10]*$"));
-            if (et.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if ((dr=et.ShowDialog()) == System.Windows.Forms.DialogResult.OK)
             {
                 encrypt.ReadFromBooleanText(et.EditedText);
                 UpdateTextAreas();
             }
+            return dr;
         }
 
 
@@ -174,26 +181,33 @@ namespace KnygaTaranCrypto
 
         private void DecryptButton_Click(object sender, EventArgs e)
         {
-            int left = decrypt.Data.Length % _chiperMode.Chiper.DataBlockLength;
+            //int left = (_chiperMode.Chiper.DataBlockLength - decrypt.Data.Length % _chiperMode.Chiper.DataBlockLength) * 8;
             //Не задан ключ или инициализирующий вектор
             if (_mParams.Key.Length < 8 || _mParams.IV.Length < 8)
             {
                 OptionsStripMenuItem_Click(sender, e);
+                DecryptButton_Click(sender, e);
             }
-            if (!_isAutoMultiplicity && left != 0)
-            {
-                MessageBox.Show(string.Format("Количество бит текста не кратно {0}! Добавьте {1} символов (1 или 0) или включите автократность (Правка-Автократность)",
-                    _chiperMode.Chiper.DataBlockLength,
-                    left), "Ошибка кратности", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DecryptEditBinaryButton_Click(sender, e);
-            }
+            //if (!_isAutoMultiplicity && left != 0)
+            //{
+            //    MessageBox.Show(string.Format("Количество байт текста не кратно {0}! Добавьте {1} бит (1 или 0) или включите автократность (Правка-Автократность)",
+            //        _chiperMode.Chiper.DataBlockLength,
+            //        left), "Ошибка кратности", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    DecryptEditBinaryButton_Click(sender, e);
+            //}
             encrypt.Data = _chiperMode.Decrypt(decrypt.Data, _mParams.Key, _mParams.IV);
             EncryptRichPreview.Text = encrypt.ToString();
         }
 
         private void EncryptButton_Click(object sender, EventArgs e)
         {
-            int left = encrypt.Data.Length % _chiperMode.Chiper.DataBlockLength;
+            int left = (_chiperMode.Chiper.DataBlockLength - encrypt.Data.Length % _chiperMode.Chiper.DataBlockLength);
+            if (_chiperMode.Chiper.DataBlockLength == left)
+            {
+                left = 0;
+            }
+            left *= 8;
+
             //Не задан ключ или инициализирующий вектор
             if (_mParams.Key.Length < 8 || _mParams.IV.Length < 8)
             {
@@ -201,10 +215,19 @@ namespace KnygaTaranCrypto
             }
             if (!_isAutoMultiplicity && left != 0)
             {
-                MessageBox.Show(string.Format("Количество бит текста не кратно {0}! Добавьте {1} символов (1 или 0) или включите автократность (Правка-Автократность)",
+                MessageBox.Show(string.Format("Количество байт текста не кратно {0}! Добавьте {1} бит (1 или 0) или удалите {2} бит (1 или 0), или включите автократность (Правка-Автократность)",
                     _chiperMode.Chiper.DataBlockLength,
-                    left), "Ошибка кратности", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                EncryptEditBinaryButton_Click(sender, e);
+                    left,
+                    _chiperMode.Chiper.DataBlockLength*8-left), "Ошибка кратности", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (EncryptEditBinary() == DialogResult.OK)
+                {
+                    EncryptButton_Click(sender, e);
+                }
+                else
+                {
+                    return;
+                }
+
             }
             decrypt.Data = _chiperMode.Encrypt(encrypt.Data, _mParams.Key, _mParams.IV);
             DecryptRichPreview.Text = decrypt.ToString();

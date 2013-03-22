@@ -10,8 +10,6 @@ I:\KnygaTaranCrypto\KnygaTaranCrypto\obj\x86\Debug\GenerateResource.write.1.tlog
 I:\KnygaTaranCrypto\KnygaTaranCrypto\bin\Debug\KnygaTaranCrypto.exe
 I:\KnygaTaranCrypto\KnygaTaranCrypto\bin\Debug\KnygaTaranCrypto.pdb
 I:\KnygaTaranCrypto\KnygaTaranCrypto\bin\Debug\KnygaTaranCryptoLib.dll
-I:\KnygaTaranCrypto\KnygaTaranCrypto\bin\Debug\SHA3.dll
-I:\KnygaTaranCrypto\KnygaTaranCrypto\bin\Debug\SHA3Managed.dll
 I:\KnygaTaranCrypto\KnygaTaranCrypto\bin\Debug\KnygaTaranCryptoLib.pdb
 I:\KnygaTaranCrypto\KnygaTaranCrypto\obj\x86\Debug\KnygaTaranCrypto.exe
 I:\KnygaTaranCrypto\KnygaTaranCrypto\obj\x86\Debug\KnygaTaranCrypto.pdb
